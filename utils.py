@@ -3,9 +3,9 @@ from colorama import Fore, Style
 def print_header(text, user, conn, ip, width=40):
     content_width = width - 2
 
-    user_line = f"[👤]  User: {user.capitalize()}"
-    conn_line = f"[🌐]  Connection: {conn.capitalize()}"
-    ip_line = f"[🖥️]  IP: {ip}"
+    user_line = f"👤    User: {user.capitalize()}"
+    conn_line = f"🌐    Connection: {conn.capitalize()}"
+    ip_line = f"🖥️      IP: {ip}"
 
     print("╔" + "═" * content_width + "╗")
     print("║" + text.upper().center(content_width) + "║")
