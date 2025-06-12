@@ -34,9 +34,9 @@ class TryHackMe:
             ovpn_file = "0xPsyBxxst.ovpn"
             subprocess.run(["sudo", "openvpn", "--config", ovpn_file, "--daemon"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             self.connection = self.status[0]
-            self.lhost = self.wait_for_ip()
-        else:
-            utils.print_info("Connected.")
+            self.lhost = self.wait_for_ip(timeout=2)
+            return
+        utils.print_info("Connected.")
 
     def stop_conn(self):
         os.system("sudo pkill openvpn")

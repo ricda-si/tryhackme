@@ -20,7 +20,7 @@ def menu():
         match usr:
             case 1:
                 tryhackme.vpn_conn()
-                if "CONNECTED" in tryhackme.connection:
+                if "DISCONNECTED" not in tryhackme.connection:
                     utils.print_success("VPN Connected!")
                     input("\nPress any key to continue.")
                 else:
