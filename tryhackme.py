@@ -1,19 +1,29 @@
 import os
+import subprocess
 import sys
 import const
 
 class TryHackMe:
     def __init__(self):
         os.system("clear")
-        self.get_ovpn_file()
+        self.check_sudo()
+        self.connected = False
+        self.vpn_conn()
 
-    def get_ovpn_file(self):
-        path = os.path.expanduser(const.PATH)
-        for file in os.listdir(path):
-            full_path = os.path.join(path, file)
-            if os.path.isfile(full_path):
-                if file.endswith(".ovpn"):
-                    return file
+
+    def check_sudo(self):
+        while True:
+            if os.geteuid() != 0:
+                print("Run as sudo !")
+            else:
+                break
+
+    def vpn_conn(self):
+        if not self.connected:
+            subprocess.run("ovpn_conn.sh", check=True)
+            self.connected = True
+
+
+
 
 tryhackme = TryHackMe()
-print(tryhackme.get_ovpn_file())
