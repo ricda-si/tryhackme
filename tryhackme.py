@@ -44,7 +44,17 @@ class TryHackMe:
         except (KeyError, IndexError):
             return None
 
+    def wait_for_iface(self, iface="tun0", timeout=30, interval=1):
+        for _ in range(int(timeout / interval)):
+            if iface in netifaces.interfaces():
+                return True
+            time.sleep(interval)
+        return False
+
     def wait_for_ip(self, timeout=30, interval=1):
+        if not self.wait_for_iface():
+            return None
+
         for _ in range(int(timeout / interval)):
             ip = self.get_ip()
             if ip:
