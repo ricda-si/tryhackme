@@ -16,6 +16,7 @@ def menu():
 
         print("1.  Connect VPN")
         print("2.  Add Target")
+        print("3.  See Log")
         print("99. Exit")
         usr = input_check.menu_user_input()
         match usr:
@@ -29,6 +30,9 @@ def menu():
                     input("\nPress any key to continue.")
             case 2:
                 tryhackme.get_rhost()
+
+            case 3:
+                tryhackme.log()
 
             case 99:
                 if "DISCONNECTED" not in tryhackme.connection:

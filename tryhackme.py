@@ -46,7 +46,7 @@ class TryHackMe:
             if not self.wait_for_iface(timeout=1):
                 break
         self.connection = self.status[1]
-        utils.print_err("Connection closed.")
+        utils.print_err("Disconnected.")
 
     def get_ip(self):
         interface = "tun0"
@@ -78,3 +78,9 @@ class TryHackMe:
     def get_rhost(self):
         rhost = input("RHOST: ")
         self.rhost = rhost
+
+    def log(self):
+        os.mkdir("testing")
+        os.chdir("testing")
+        os.system("echo 123 > text.txt")
+        os.listdir()
