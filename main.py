@@ -13,10 +13,12 @@ def menu():
 
         print("1. Connect VPN")
         print("99. Exit")
-        usr = input("> ")
+        usr = int(input("> "))
         match usr:
             case 1:
                 tryhackme.vpn_conn()
+                if "CONNECTED" in tryhackme.connection:
+                    utils.print_success("VPN Connected!")
             case 99:
                 break
         tryhackme.stop_conn()

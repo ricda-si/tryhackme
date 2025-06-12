@@ -22,6 +22,7 @@ class TryHackMe:
             return True
 
     def vpn_conn(self):
+        utils.print_info("Connecting VPN. . .")
         path = os.path.expanduser("/home/psybxxst/Documents")
         os.chdir(path)
         ovpn_file = "0xPsyBxxst.ovpn"
