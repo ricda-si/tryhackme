@@ -8,8 +8,8 @@ import os
 def menu():
     tryhackme = thm.TryHackMe()
     scanner = sc.Scanner()
+    os.system("clear")
     while True:
-        os.system("clear")
         utils.print_header("Menu")
         #utils.print_user_info(tryhackme.connection, tryhackme.lhost)
         if not tryhackme.check_sudo():
