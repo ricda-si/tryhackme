@@ -9,7 +9,7 @@ def print_header(title, user, conn, ip, width=50):
 
     print(border)
     print(format_line(title.upper().center(width - 4)))
-    print(format_line(""))
+    print(format_line("-" * len(border)))
     print(format_line(f"[👤] User: {user.capitalize()}"))
     print(format_line(f"[🌐] Connection: {conn.capitalize()}"))
     print(format_line(f"[🖥️] IP: {ip}"))
