@@ -18,7 +18,7 @@ class TryHackMe:
                 break
 
     def vpn_conn(self):
-        os.system("cd ~/Documents/")
+        os.system("cd; cd Documents/")
         os.system("sudo openvpn 0xPsyBxxst.ovpn")
         '''
         script_dir = os.path.dirname(os.path.abspath(__file__))
