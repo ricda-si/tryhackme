@@ -17,7 +17,7 @@ def menu():
             case 1:
                 ...
             case 99:
-                tryhackme.exit_script()
+                tryhackme.stop_conn()
         break
 
 if __name__ == "__main__":
