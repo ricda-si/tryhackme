@@ -17,11 +17,10 @@ class TryHackMe:
                 break
 
     def vpn_conn(self):
-        if not self.connected:
-            subprocess.run("ovpn_conn.sh", check=True)
-            self.connected = True
-
-
-
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        script_path = os.path.join(script_dir, "ovpn_conn.sh")
+        os.chmod(script_path, 0o755)
+        subprocess.run([script_path], check=True)
+        self.connected = True
 
 tryhackme = TryHackMe()
