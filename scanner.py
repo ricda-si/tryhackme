@@ -9,4 +9,5 @@ class Scanner:
 
     def test(self, ip, status):
         print(f"{ip}, {status}")
+        input()
 

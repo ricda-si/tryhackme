@@ -11,7 +11,7 @@ def menu():
     while True:
         os.system("clear")
         utils.print_header("Menu")
-        utils.print_user_info(tryhackme.connection, tryhackme.lhost, rhost=tryhackme.rhost)
+        utils.print_user_info(tryhackme.connection, tryhackme.lhost)
         if not tryhackme.check_sudo():
             utils.print_err("Run as sudo!")
             return
