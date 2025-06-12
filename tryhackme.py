@@ -3,6 +3,7 @@ from sys import exit
 import subprocess
 import netifaces
 import time
+import utils
 
 class TryHackMe:
     def __init__(self):
@@ -11,7 +12,6 @@ class TryHackMe:
         self.check_sudo()
         self.vpn_conn()
         self.lhost = self.wait_for_ip()
-        self.print_status()
 
     def check_sudo(self):
         while True:
@@ -30,7 +30,7 @@ class TryHackMe:
 
     def stop_conn(self):
         os.system("sudo pkill openvpn")
-        print("Connection Stopped!")
+        utils.print_info("Connection closed.")
 
     def exit_script(self):
         self.stop_conn()
@@ -60,10 +60,5 @@ class TryHackMe:
             if ip:
                 return ip
             time.sleep(interval)
-        print("Error: No IP")
+        utils.print_err("No IP.")
         return None
-
-    def print_status(self):
-        print(f"Connected: {self.connected}\nIP: {self.lhost}")
-
-tryhackme = TryHackMe()
