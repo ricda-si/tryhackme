@@ -4,7 +4,7 @@ import os
 def print_header(text, user, conn, ip, width=40):
     os.system("clear")
     content_width = width - 2
-    head = f"+" + "\t\t{text}\t\t" + "+"
+    head = "+" + f"\t\t{text}\t\t" + "+"
 
     line = "+" + ("-" * len(head) + "+")
 
@@ -17,6 +17,8 @@ def print_header(text, user, conn, ip, width=40):
     print("|" + user_line + (" " * len(head)) + "|")
     print("|" + conn_line + (" " * len(head)) + "|")
     print("|" + ip_line + (" " * len(head)) + "|")
+    print(line)
+    print('\n')
 
 
     '''
