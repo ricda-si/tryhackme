@@ -8,7 +8,9 @@ import utils
 class TryHackMe:
     def __init__(self):
         os.system("clear")
-        self.connected = "DISCONNECTED"
+        self.status = ["CONNECTED 🟢", "DISCONNECTED 🔴"]
+        self.connection = self.status[1]
+        self.user = "user"
         self.check_sudo()
         self.vpn_conn()
         self.lhost = self.wait_for_ip()
@@ -17,6 +19,7 @@ class TryHackMe:
         while True:
             if os.geteuid() != 0: # type: ignore
                 return False
+            self.user = "sudo"
             return True
 
     def vpn_conn(self):
@@ -24,11 +27,12 @@ class TryHackMe:
         os.chdir(path)
         ovpn_file = "0xPsyBxxst.ovpn"
         subprocess.run(["sudo", "openvpn", "--config", ovpn_file, "--daemon"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        self.connected = "CONNECTED"
+        self.connection = self.status[0]
 
     def stop_conn(self):
         os.system("sudo pkill openvpn")
         utils.print_info("Connection closed.")
+        self.connection = self.status[1]
 
     def exit_script(self):
         self.stop_conn()
