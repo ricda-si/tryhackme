@@ -7,9 +7,9 @@ import time
 class TryHackMe:
     def __init__(self):
         os.system("clear")
+        self.connected = False
         self.check_sudo()
         self.vpn_conn()
-        self.connected = False
         self.lhost = self.wait_for_ip()
         self.print_status()
 
@@ -64,9 +64,6 @@ class TryHackMe:
         return None
 
     def print_status(self):
-        print(f'''
-              Connected: {self.connected}
-              IP: {self.lhost}
-              ''')
+        print(f"Connected: {self.connected}\nIP: {self.lhost}")
 
 tryhackme = TryHackMe()
