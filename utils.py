@@ -1,8 +1,21 @@
 from colorama import Fore, Style
 import os
 
-def print_header(text, user, conn, ip, width=40):
-    os.system("clear")
+def print_header(title, user, conn, ip, width=50):
+    border = '+' + '-' * (width - 2) + '+'
+
+    def format_line(text):
+        return '| ' + text.ljust(width - 4) + ' |'
+
+    print(border)
+    print(format_line(title.upper().center(width - 4)))
+    print(format_line(""))
+    print(format_line(f"[👤] User: {user.capitalize()}"))
+    print(format_line(f"[🌐] Connection: {conn.capitalize()}"))
+    print(format_line(f"[🖥️] IP: {ip}"))
+    print(format_line(""))
+    print(border)
+    '''
     content_width = width - 2
     head = "+" + f"\t\t{text}\t\t" + "+"
 
@@ -21,7 +34,6 @@ def print_header(text, user, conn, ip, width=40):
     print('\n')
 
 
-    '''
     print("+" + "-" * content_width + "+")
     print("|" + text.upper().center(content_width) + "|")
     print("|" + "-" * content_width + "|")

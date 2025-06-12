@@ -31,10 +31,10 @@ class TryHackMe:
 
     def stop_conn(self):
         os.system("sudo pkill openvpn")
-        while self.wait_for_iface():
-            os.system("clear")
-            print("Disconnecting. . .")
-            time.sleep(0.3)
+        utils.print_info("Disconnecting. . .")
+        while True:
+            if not self.wait_for_iface:
+                break
         self.connection = self.status[1]
         utils.print_info("Connection closed.")
 
