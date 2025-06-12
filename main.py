@@ -27,23 +27,17 @@ def menu():
                 if "DISCONNECTED" in tryhackme.connection:
                     tryhackme.vpn_conn()
                     utils.print_success("VPN Connected!")
-                    input("\nPress any key to continue.")
                 else:
                     utils.print_info("Conected.")
-                    input("\nPress any key to continue.")
             case 2:
                 if "DISCONNECTED" in tryhackme.connection:
                     utils.print_info("Disconnected.")
-                    input("\nPress any key to continue.")
                 else:
                     tryhackme.stop_conn()
-                    input("\nPress any key to continue.")
             case 3:
                 scanner.test(tryhackme.lhost, tryhackme.connection)
-
             case 4:
                 utils.print_user_info(tryhackme.connection, tryhackme.lhost)
-
             case 99:
                 if "DISCONNECTED" not in tryhackme.connection:
                     tryhackme.stop_conn()
