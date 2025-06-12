@@ -1,1 +1,1 @@
-PATH = "~/Documents"
+PATH = "~/Documents/"
