@@ -21,7 +21,8 @@ class TryHackMe:
         script_dir = os.path.dirname(os.path.abspath(__file__))
         script_path = os.path.join(script_dir, "ovpn_conn.sh")
         os.chmod(script_path, 0o755)
-        subprocess.run(["bash", script_path], check=True)
+        os.system("./ovpn_conn.sh")
+        #subprocess.run(["bash", script_path], check=True)
         self.connected = True
 
 tryhackme = TryHackMe()
