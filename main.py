@@ -1,10 +1,12 @@
 import tryhackme as thm
 import utils
 from sys import exit
+import os
 
 def menu():
     tryhackme = thm.TryHackMe()
     while True:
+        os.system("clear")
         utils.print_header("Menu")
         utils.print_user_info(tryhackme.user, tryhackme.connection, tryhackme.lhost)
         if not tryhackme.check_sudo():

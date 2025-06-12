@@ -36,7 +36,7 @@ class TryHackMe:
             if not self.wait_for_iface(timeout=1):
                 break
         self.connection = self.status[1]
-        utils.print_info("Connection closed.")
+        utils.print_err("Connection closed.")
 
     def get_ip(self):
         interface = "tun0"
