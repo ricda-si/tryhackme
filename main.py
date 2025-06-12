@@ -34,7 +34,6 @@ def menu():
             case 99:
                 if "DISCONNECTED" not in tryhackme.connection:
                     tryhackme.stop_conn()
-                break
 
 if __name__ == "__main__":
     menu()
