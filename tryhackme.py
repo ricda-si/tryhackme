@@ -31,12 +31,8 @@ class TryHackMe:
 
     def stop_conn(self):
         os.system("sudo pkill openvpn")
-        utils.print_info("Connection closed.")
         self.connection = self.status[1]
-
-    def exit_script(self):
-        self.stop_conn()
-        exit()
+        utils.print_info("Connection closed.")
 
     def get_ip(self):
         interface = "tun0"

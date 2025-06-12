@@ -6,7 +6,7 @@ def print_header(text, user, conn, ip, width=40):
     content_width = width - 2
 
     user_line = f"👤    User: {user.capitalize()}"
-    conn_line = f"🛜    Connection: {conn.capitalize()}"
+    conn_line = f"🛜    Status: {conn.capitalize()}"
     ip_line = f"🖥️    IP: {ip}"
 
     print("╔" + "═" * content_width + "╗")
