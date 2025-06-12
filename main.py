@@ -33,6 +33,7 @@ def menu():
 
             case 3:
                 tryhackme.log()
+                input()
 
             case 99:
                 if "DISCONNECTED" not in tryhackme.connection:

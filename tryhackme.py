@@ -80,7 +80,12 @@ class TryHackMe:
         self.rhost = rhost
 
     def log(self):
-        os.mkdir("testing")
-        os.chdir("testing")
-        os.system("echo 123 > text.txt")
-        os.listdir()
+        try:
+            if not "logs" in os.listdir():
+                os.mkdir("logs")
+            else:
+                os.chdir("logs")
+                os.system("echo 123 > test.txt")
+        except:
+            pass
+
