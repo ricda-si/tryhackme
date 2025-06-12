@@ -12,8 +12,7 @@ class TryHackMe:
         self.connection = self.status[1]
         self.user = "user"
         self.check_sudo()
-        self.vpn_conn()
-        self.lhost = self.wait_for_ip()
+        self.lhost = None
 
     def check_sudo(self):
         while True:
@@ -60,7 +59,7 @@ class TryHackMe:
         for _ in range(int(timeout / interval)):
             ip = self.get_ip()
             if ip:
-                return ip
+                self.lhost = ip
+                return
             time.sleep(interval)
-        utils.print_err("No IP.")
         return None

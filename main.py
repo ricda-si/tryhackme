@@ -11,12 +11,12 @@ def menu():
             utils.print_err("Run as sudo!")
             return
 
-        print("1. Show info")
+        print("1. Connect VPN")
         print("99. Exit")
         usr = input("> ")
         match usr:
             case 1:
-                ...
+                tryhackme.vpn_conn()
             case 99:
                 break
         tryhackme.stop_conn()
