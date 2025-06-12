@@ -5,7 +5,8 @@ from sys import exit
 def menu():
     tryhackme = thm.TryHackMe()
     while True:
-        utils.print_header("Menu", tryhackme.user, tryhackme.connection, tryhackme.lhost)
+        utils.print_header("Menu")
+        utils.print_info(tryhackme.user, tryhackme.connection, tryhackme.lhost)
         if not tryhackme.check_sudo():
             utils.print_err("Run as sudo!")
             return
