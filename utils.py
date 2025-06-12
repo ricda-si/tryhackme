@@ -2,8 +2,8 @@ from colorama import Fore, Style
 import os
 
 def print_header(title, width=50):
-    header = f"║    {title}    ║"
-    upperline = "╔" + "=" * len(header + "\t\t") + "╗"
+    header = f"║{title}║"
+    upperline = "╔" + "=" * len(header) + "╗"
     bottomline = "╚" + "═" * len(header) + "╝"
 
     print(upperline)
