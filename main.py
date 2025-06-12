@@ -41,7 +41,7 @@ def menu():
                 scanner.test(tryhackme.lhost, tryhackme.connection)
 
             case 4:
-                utils.print_user_info(("name1", "name2"), "info1")
+                utils.print_user_info(("name1", "name2"), ("info1", "info2", "info3"))
 
             case 99:
                 if "DISCONNECTED" not in tryhackme.connection:
