@@ -1,5 +1,6 @@
 import tryhackme as thm
 import utils
+import input_check
 from sys import exit
 import os
 
@@ -15,12 +16,16 @@ def menu():
 
         print("1. Connect VPN")
         print("99. Exit")
-        usr = int(input("> "))
+        usr = input_check.menu_user_input()
         match usr:
             case 1:
                 tryhackme.vpn_conn()
                 if "CONNECTED" in tryhackme.connection:
                     utils.print_success("VPN Connected!")
+                    input("\nPress any key to continue.")
+                else:
+                    utils.print_err("Erro.")
+                    input("\nPress any key to continue.")
             case 99:
                 tryhackme.stop_conn()
                 break

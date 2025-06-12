@@ -31,6 +31,3 @@ def print_success(text):
 
 def print_info(text):
     print("\n" + Style.BRIGHT + Fore.BLUE + text + '\n' + Style.RESET_ALL)
-
-
-
