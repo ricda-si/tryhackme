@@ -11,7 +11,7 @@ def menu():
     while True:
         os.system("clear")
         utils.print_header("Menu")
-        utils.print_user_info(tryhackme.connection, tryhackme.lhost)
+        #utils.print_user_info(tryhackme.connection, tryhackme.lhost)
         if not tryhackme.check_sudo():
             utils.print_err("Run as sudo!")
             return
@@ -39,6 +39,9 @@ def menu():
                     input("\nPress any key to continue.")
             case 3:
                 scanner.test(tryhackme.lhost, tryhackme.connection)
+
+            case 4:
+                utils.print_user_info(("name1", "name2"), "info1")
 
             case 99:
                 if "DISCONNECTED" not in tryhackme.connection:
