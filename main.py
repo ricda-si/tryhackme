@@ -13,6 +13,8 @@ def menu():
         utils.print_err("Run as sudo!")
         return
 
+    info("sudo", tryhackme.connected, tryhackme.lhost)
+
     print("1. Show info")
     usr = input("> ")
     if usr == "1":
