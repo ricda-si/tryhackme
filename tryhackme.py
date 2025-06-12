@@ -9,8 +9,8 @@ class TryHackMe:
 
     def get_ovpn_file(self):
         for file in os.listdir(const.PATH):
-            if os.path.isfile(os.path.join(const.PATH, file)):
+            path = os.path.join(const.PATH, file)
+            if os.path.isfile(path):
                 print(file)
-
 
 tryhackme = TryHackMe()
