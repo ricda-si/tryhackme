@@ -27,7 +27,7 @@ class TryHackMe:
         return False
 
     def vpn_conn(self):
-        if not self.check_connection():
+        if self.connection == self.status[1]:
             utils.print_info("\nConnecting VPN. . .")
             path = os.path.expanduser("/home/psybxxst/Documents")
             os.chdir(path)

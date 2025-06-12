@@ -8,13 +8,13 @@ def menu():
     tryhackme = thm.TryHackMe()
     while True:
         os.system("clear")
-        utils.print_header("Menu")
+        #utils.print_header("Menu")
         utils.print_user_info(tryhackme.user, tryhackme.connection, tryhackme.lhost)
         if not tryhackme.check_sudo():
             utils.print_err("Run as sudo!")
             return
 
-        print("1. Connect VPN")
+        print("1.  Connect VPN")
         print("99. Exit")
         usr = input_check.menu_user_input()
         match usr:
