@@ -15,7 +15,7 @@ def print_user_info(user, conn, ip):
     conn_line = f"🛜: {conn.capitalize()}"
     ip_line = f"🖥️: {ip}"
 
-    line = "+" + "-" * len(conn_line) + "+"
+    line = "+" + "-" * len(conn_line) + "-+"
     print(line)
     print(f"{user_line}")
     print(f"{conn_line}")

@@ -28,6 +28,7 @@ class TryHackMe:
         ovpn_file = "0xPsyBxxst.ovpn"
         subprocess.run(["sudo", "openvpn", "--config", ovpn_file, "--daemon"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         self.connection = self.status[0]
+        self.lhost = self.wait_for_ip()
 
     def stop_conn(self):
         os.system("sudo pkill openvpn")
@@ -54,13 +55,13 @@ class TryHackMe:
         return False
 
     def wait_for_ip(self, timeout=30, interval=1):
+        utils.print_info("Getting IP. . .")
         if not self.wait_for_iface():
             return None
 
         for _ in range(int(timeout / interval)):
             ip = self.get_ip()
             if ip:
-                self.lhost = ip
-                return
+                return ip
             time.sleep(interval)
         return None
