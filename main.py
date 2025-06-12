@@ -9,12 +9,13 @@ def menu():
     while True:
         os.system("clear")
         #utils.print_header("Menu")
-        utils.print_user_info(tryhackme.user, tryhackme.connection, tryhackme.lhost)
+        utils.print_user_info(tryhackme.user, tryhackme.connection, tryhackme.lhost, rhost=tryhackme.rhost)
         if not tryhackme.check_sudo():
             utils.print_err("Run as sudo!")
             return
 
         print("1.  Connect VPN")
+        print("2.  Add Target")
         print("99. Exit")
         usr = input_check.menu_user_input()
         match usr:
@@ -26,6 +27,9 @@ def menu():
                 else:
                     utils.print_err("Erro.")
                     input("\nPress any key to continue.")
+            case 2:
+                tryhackme.get_rhost()
+
             case 99:
                 if "DISCONNECTED" not in tryhackme.connection:
                     tryhackme.stop_conn()

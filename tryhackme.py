@@ -13,6 +13,7 @@ class TryHackMe:
         self.user = "user"
         self.check_sudo()
         self.lhost = None
+        self.rhost = None
 
     def check_sudo(self):
         while True:
@@ -73,3 +74,7 @@ class TryHackMe:
                 return ip
             time.sleep(interval)
         return None
+
+    def get_rhost(self):
+        rhost = input("RHOST: ")
+        self.rhost = rhost
