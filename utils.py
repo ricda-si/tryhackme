@@ -11,16 +11,17 @@ def print_header(title, width=50):
     print(bottomline)
 
 def print_user_info(user, conn, ip, target=None):
-    user_line = f"User: {user.capitalize()}"
-    conn_line = f"VPN: {conn.capitalize()}"
-    ip_line = f"Host: {ip}"
-    target = f"Target: {target}"
+    user_line = f"User:   {user.capitalize()}"
+    conn_line = f"VPN:    {conn.capitalize()}"
+    ip_line =   f"Host:   {ip}"
+    target =    f"Target: {target}"
 
-    line = "+" + "-" * len(conn_line) + "-+"
+    line = "+" + "-" * 20 + "-+"
     print(line)
     print(f"{user_line}")
     print(f"{conn_line}")
     print(f"{ip_line}")
+    print(f"{target}")
     print(line)
     print("\n")
 
