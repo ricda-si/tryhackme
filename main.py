@@ -3,6 +3,7 @@ import utils
 from sys import exit
 
 def menu():
+    global run
     tryhackme = thm.TryHackMe()
     utils.print_header("Menu", tryhackme.user, tryhackme.connection, tryhackme.lhost)
     if not tryhackme.check_sudo():
@@ -17,9 +18,12 @@ def menu():
             ...
         case 99:
             tryhackme.exit_script()
+            run = False
             exit()
 
+run = True
 if __name__ == "__main__":
-    while True:
+    while run:
         menu()
+
 
