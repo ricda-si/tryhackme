@@ -9,8 +9,9 @@ def print_header(text, user, conn, ip, width=40):
 
     print("╔" + "═" * content_width + "╗")
     print("║" + text.upper().center(content_width) + "║")
-    print("║" + " " * content_width + "║")
+    print("║" + "=" * content_width + "║")
 
+    print("║" + " " * content_width + "║")
     print("║" + user_line.ljust(content_width) + "║")
     print("║" + conn_line.ljust(content_width) + "║")
     print("║" + ip_line.ljust(content_width) + "║")
