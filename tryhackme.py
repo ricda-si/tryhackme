@@ -13,6 +13,7 @@ class TryHackMe:
         while True:
             if os.geteuid() != 0:
                 print("Run as sudo !")
+                break
             else:
                 break
 
