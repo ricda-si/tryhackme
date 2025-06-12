@@ -1,8 +1,9 @@
 from colorama import Fore, Style
 
-def print_header(text, width=40, char='='):
+def print_header(text, width=40, char='=', info=""):
     print("╔" + "═" * (width-2) + "╗")
     print("║" + text.center(width-2).upper() + "║")
+    print("║" + info.center(width-2).upper() + "║")
     print("╚" + "═" * (width-2) + "╝")
 
 def print_err(text):

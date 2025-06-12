@@ -1,7 +1,7 @@
 import os
 from sys import exit
 import subprocess
-import netifaces
+import netifaces # type: ignore
 import time
 import utils
 
@@ -15,11 +15,9 @@ class TryHackMe:
 
     def check_sudo(self):
         while True:
-            if os.geteuid() != 0:
-                print("Run as sudo !")
-                break
-            else:
-                break
+            if os.geteuid() != 0: # type: ignore
+                return False
+            return True
 
     def vpn_conn(self):
         path = os.path.expanduser("/home/psybxxst/Documents")
