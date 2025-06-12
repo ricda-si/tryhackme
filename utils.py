@@ -17,6 +17,8 @@ def print_user_info(name, info):
     for i in info:
         print(i)
 
+    input()
+
     #conn_line = f"  VPN:    {conn.capitalize()}"
     #lhost_line =f"  LHOST:  {lhost}"
 
