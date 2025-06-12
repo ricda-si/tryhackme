@@ -27,7 +27,7 @@ def menu():
                     utils.print_err("Erro.")
                     input("\nPress any key to continue.")
             case 99:
-                if "CONNECTED" in tryhackme.connection:
+                if "DISCONNECTED" not in tryhackme.connection:
                     tryhackme.stop_conn()
                 break
 

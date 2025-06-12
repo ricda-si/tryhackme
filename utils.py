@@ -24,10 +24,10 @@ def print_user_info(user, conn, ip):
     print("\n")
 
 def print_err(text):
-    print("\n" + Style.BRIGHT + Fore.RED + text + '\n' + Style.RESET_ALL)
+    print(Style.BRIGHT + Fore.RED + text + '\n' + Style.RESET_ALL)
 
 def print_success(text):
-    print("\n" + Style.BRIGHT + Fore.GREEN + text + '\n' + Style.RESET_ALL)
+    print(Style.BRIGHT + Fore.GREEN + text + '\n' + Style.RESET_ALL)
 
 def print_info(text):
-    print("\n" + Style.BRIGHT + Fore.BLUE + text + '\n' + Style.RESET_ALL)
+    print(Style.BRIGHT + Fore.BLUE + text + '\n' + Style.RESET_ALL)

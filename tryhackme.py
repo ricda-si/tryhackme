@@ -21,14 +21,22 @@ class TryHackMe:
             self.user = "sudo"
             return True
 
+    def check_connection(self):
+        if self.wait_for_iface:
+            return True
+        return False
+
     def vpn_conn(self):
-        utils.print_info("\nConnecting VPN. . .")
-        path = os.path.expanduser("/home/psybxxst/Documents")
-        os.chdir(path)
-        ovpn_file = "0xPsyBxxst.ovpn"
-        subprocess.run(["sudo", "openvpn", "--config", ovpn_file, "--daemon"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        self.connection = self.status[0]
-        self.lhost = self.wait_for_ip()
+        if not self.check_connection():
+            utils.print_info("\nConnecting VPN. . .")
+            path = os.path.expanduser("/home/psybxxst/Documents")
+            os.chdir(path)
+            ovpn_file = "0xPsyBxxst.ovpn"
+            subprocess.run(["sudo", "openvpn", "--config", ovpn_file, "--daemon"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            self.connection = self.status[0]
+            self.lhost = self.wait_for_ip()
+        else:
+            utils.print_info("Connected.")
 
     def stop_conn(self):
         os.system("sudo pkill openvpn")
