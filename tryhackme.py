@@ -18,15 +18,9 @@ class TryHackMe:
                 break
 
     def vpn_conn(self):
-        ovpn_path = os.path.expanduser("~/Documents/0xPsyBxxst.ovpn")
-        subprocess.run(["sudo", "openvpn", "--config", ovpn_path], check=True)
-        '''
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        script_path = os.path.join(script_dir, "ovpn_conn.sh")
-        os.chmod(script_path, 0o755)
-        os.system("./ovpn_conn.sh")
-        #subprocess.run(["bash", script_path], check=True)
-        self.connected = True
-        '''
+        path = os.path.expanduser("~/Documents")
+        os.chdir(path)
+        ovpn_file = "0xPsyBxxst.ovpn"
+        subprocess.run(["sudo", "openvpn", "--config", ovpn_file, "--daemon"], check=True)
 
 tryhackme = TryHackMe()
