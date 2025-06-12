@@ -83,9 +83,14 @@ class TryHackMe:
         try:
             if not "logs" in os.listdir():
                 os.mkdir("logs")
+                utils.print_info("Logs folder created.")
             else:
                 os.chdir("logs")
                 os.system("echo 123 > test.txt")
+                utils.print_info("Created test file in logs folder")
+                with open("test.txt", 'r') as file:
+                    line = file.readline()
+                    utils.print_info(line)
         except:
             pass
 
