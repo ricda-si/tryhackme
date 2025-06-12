@@ -7,3 +7,6 @@ class Scanner:
     def __init__(self):
         print("Scanner init.")
 
+    def test(self, ip, status):
+        print(f"{ip}, {status}")
+
