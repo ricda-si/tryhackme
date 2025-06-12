@@ -9,18 +9,18 @@ def menu():
     tryhackme = thm.TryHackMe()
     scanner = sc.Scanner()
     os.system("clear")
-    while True:
-        utils.print_header("Menu")
-        #utils.print_user_info(tryhackme.connection, tryhackme.lhost)
-        if not tryhackme.check_sudo():
-            utils.print_err("Run as sudo!")
-            return
+    utils.print_header("Menu")
+    #utils.print_user_info(tryhackme.connection, tryhackme.lhost)
+    if not tryhackme.check_sudo():
+        utils.print_err("Run as sudo!")
+        return
 
-        print("1.  Connect VPN")
-        print("2.  Disconnect VPN")
-        print("3.  Scan Target")
-        print("4.  Check Status")
-        print("99. Exit")
+    print("1.  Connect VPN")
+    print("2.  Disconnect VPN")
+    print("3.  Scan Target")
+    print("4.  Check Status")
+    print("99. Exit")
+    while True:
         usr = input_check.menu_user_input()
         match usr:
             case 1:
@@ -51,5 +51,3 @@ def menu():
 
 if __name__ == "__main__":
     menu()
-
-
