@@ -27,7 +27,8 @@ def menu():
                     utils.print_err("Erro.")
                     input("\nPress any key to continue.")
             case 99:
-                tryhackme.stop_conn()
+                if tryhackme.wait_for_iface:
+                    tryhackme.stop_conn()
                 break
 
 if __name__ == "__main__":
