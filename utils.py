@@ -3,23 +3,24 @@ import os
 
 def print_header(title, width=50):
     header = f"║\t\t{title}\t\t║"
-    upperline = "╔" + "=" * width + "╗"
-    bottomline = "╚" + "═" * width + "╝"
+    upperline = "╔" + "=" * len(header) + "╗"
+    bottomline = "╚" + "═" * len(header) + "╝"
 
     print(upperline)
     print(header)
     print(bottomline)
 
 def print_user_info(user, conn, ip):
-    user_line = f"👤: {user.capitalize()}   |"
-    conn_line = f"🛜: {conn.capitalize()}   |"
-    ip_line = f"🖥️:   {ip}                  |"
+    user_line = f"|👤: {user.capitalize()}\t|"
+    conn_line = f"|🛜: {conn.capitalize()}\t|"
+    ip_line = f"|🖥️: {ip}\t|"
 
     line = "+" + "-" * len(conn_line) + "+"
     print(line)
-    print(f"|{user_line}\t\t|")
-    print(f"|{conn_line}\t\t|")
-    print(f"|{ip_line}\t\t|")
+    print(f"{user_line}")
+    print(f"{conn_line}")
+    print(f"{ip_line}")
+    print(line)
 
 def print_err(text):
     print(Fore.RED + text + '\n' + Style.RESET_ALL)
