@@ -10,25 +10,17 @@ def print_header(title, width=50):
     print(header)
     print(bottomline)
 
-def print_user_info(name, info):
-    for item in name:
-        print(item)
+def print_user_info(conn, lhost):
+    conn_line = f"  VPN:    {conn.capitalize()}"
+    lhost_line =f"  LHOST:  {lhost}"
 
-    for i in info:
-        print(i)
-
-    input()
-
-    #conn_line = f"  VPN:    {conn.capitalize()}"
-    #lhost_line =f"  LHOST:  {lhost}"
-
-    '''
     line = "+" + "-" * 20 + "-+"
     print(line)
     print(f"{conn_line}")
     print(f"{lhost_line}")
     print(line)
-    '''
+
+    input()
 
 def print_err(text):
     print(Style.BRIGHT + Fore.RED + text + Style.RESET_ALL)

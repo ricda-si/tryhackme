@@ -19,6 +19,7 @@ def menu():
         print("1.  Connect VPN")
         print("2.  Disconnect VPN")
         print("3.  Scan Target")
+        print("4.  Check Status")
         print("99. Exit")
         usr = input_check.menu_user_input()
         match usr:
@@ -41,7 +42,7 @@ def menu():
                 scanner.test(tryhackme.lhost, tryhackme.connection)
 
             case 4:
-                utils.print_user_info(("name1", "name2"), ("info1", "info2", "info3"))
+                utils.print_user_info(tryhackme.connection, tryhackme.lhost)
 
             case 99:
                 if "DISCONNECTED" not in tryhackme.connection:
