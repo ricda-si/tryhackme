@@ -2,7 +2,7 @@ from colorama import Fore, Style
 import os
 
 def print_header(title, width=50):
-    header = f"║\t\t{title}\t\t║"
+    header = f"║{title}║"
     upperline = "╔" + "=" * len(header) + "╗"
     bottomline = "╚" + "═" * len(header) + "╝"
 
@@ -11,9 +11,9 @@ def print_header(title, width=50):
     print(bottomline)
 
 def print_user_info(user, conn, ip):
-    user_line = f"|👤: {user.capitalize()}\t|"
-    conn_line = f"|🛜: {conn.capitalize()}\t|"
-    ip_line = f"|🖥️: {ip}\t|"
+    user_line = f"👤: {user.capitalize()}"
+    conn_line = f"🛜: {conn.capitalize()}"
+    ip_line = f"🖥️: {ip}"
 
     line = "+" + "-" * len(conn_line) + "+"
     print(line)
@@ -21,6 +21,7 @@ def print_user_info(user, conn, ip):
     print(f"{conn_line}")
     print(f"{ip_line}")
     print(line)
+    print("\n")
 
 def print_err(text):
     print(Fore.RED + text + '\n' + Style.RESET_ALL)
