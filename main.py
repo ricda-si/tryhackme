@@ -1,5 +1,6 @@
 import tryhackme as thm
 import utils
+from sys import exit
 
 def menu():
     tryhackme = thm.TryHackMe()
@@ -14,7 +15,9 @@ def menu():
     match usr:
         case 1:
             ...
-
+        case 99:
+            tryhackme.exit_script()
+            exit()
 
 if __name__ == "__main__":
     while True:
