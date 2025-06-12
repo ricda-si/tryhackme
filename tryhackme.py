@@ -1,7 +1,5 @@
 import os
 import subprocess
-import sys
-import const
 
 class TryHackMe:
     def __init__(self):
