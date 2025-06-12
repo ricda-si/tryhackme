@@ -2,9 +2,9 @@ from colorama import Fore, Style
 import os
 
 def print_header(title, width=50):
-    header = f"|{title}|"
+    header = f"{title}"
     upperline = "+" + "-" * len(header) + "+"
-    bottomline = "+" + "-" * len(header) + "+\n"
+    bottomline = "+" + "-" * len(header) + "+"
 
     print(upperline)
     print(header)
@@ -23,7 +23,6 @@ def print_user_info(user, conn, lhost, rhost=None):
     print(f"{lhost_line}")
     print(f"{rhost}")
     print(line)
-    print("\n")
 
 def print_err(text):
     print(Style.BRIGHT + Fore.RED + text + Style.RESET_ALL)
