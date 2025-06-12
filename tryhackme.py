@@ -16,10 +16,13 @@ class TryHackMe:
         self.rhost = None
 
     def check_sudo(self):
+        self.log("[+] Checking Sudo")
         while True:
             if os.geteuid() != 0: # type: ignore
+                self.log("[-] Not Sudo")
                 return False
             self.user = "sudo"
+            self.log("[+] Sudo check")
             return True
 
     def check_connection(self):
@@ -30,12 +33,14 @@ class TryHackMe:
     def vpn_conn(self):
         if self.connection == self.status[1]:
             utils.print_info("\nConnecting VPN. . .")
+            self.log("[+] Connecting VPN")
             path = os.path.expanduser("/home/psybxxst/Documents")
             os.chdir(path)
             ovpn_file = "0xPsyBxxst.ovpn"
             subprocess.run(["sudo", "openvpn", "--config", ovpn_file, "--daemon"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             self.connection = self.status[0]
             self.lhost = self.wait_for_ip(timeout=2)
+            self.log("[+] VPN Connected.")
             return
         utils.print_info("Connected.")
 
@@ -47,6 +52,7 @@ class TryHackMe:
                 break
         self.connection = self.status[1]
         utils.print_err("Disconnected.")
+        self.log("[-] Disconnected.")
 
     def get_ip(self):
         interface = "tun0"
@@ -71,26 +77,31 @@ class TryHackMe:
         for _ in range(int(timeout / interval)):
             ip = self.get_ip()
             if ip:
+                self.log(f"Get IP: {ip}")
                 return ip
             time.sleep(interval)
+        self.log("[!] Failed to get ip")
         return None
 
     def get_rhost(self):
         rhost = input("RHOST: ")
         self.rhost = rhost
+        self.log(f"[+] Add RHOST: {rhost}")
 
-    def log(self):
+    def log(self, content):
         try:
-            if not "logs" in os.listdir():
+            if "logs" not in os.listdir():
                 os.mkdir("logs")
-                utils.print_info("Logs folder created.")
-            else:
-                os.chdir("logs")
-                os.system("echo 123 > test.txt")
-                utils.print_info("Created test file in logs folder")
-                with open("test.txt", 'r') as file:
-                    line = file.readline()
-                    utils.print_info(line)
+
+            os.chdir("logs")
+            if "log.txt" not in os.listdir():
+                with open("log.txt", 'w') as file:
+                    file.write(content)
+                    file.write("\n")
+                return
+            with open("log.txt", 'a') as file:
+                file.write(content)
+                file.write("\n")
         except:
             pass
 
