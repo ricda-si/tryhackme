@@ -46,6 +46,7 @@ class TryHackMe:
             if not self.wait_for_iface(timeout=1):
                 break
         self.connection = self.status[1]
+        self.lhost = None
         utils.print_err("Disconnected.")
 
     def get_ip(self):

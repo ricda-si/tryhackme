@@ -1,4 +1,5 @@
 import tryhackme as thm
+import scanner as sc
 import utils
 import input_check
 from sys import exit
@@ -6,29 +7,38 @@ import os
 
 def menu():
     tryhackme = thm.TryHackMe()
+    scanner = sc.Scanner()
     while True:
         os.system("clear")
-        #utils.print_header("Menu")
+        utils.print_header("Menu")
         utils.print_user_info(tryhackme.user, tryhackme.connection, tryhackme.lhost, rhost=tryhackme.rhost)
         if not tryhackme.check_sudo():
             utils.print_err("Run as sudo!")
             return
 
         print("1.  Connect VPN")
-        print("2.  Add Target")
-        #print("3.  See Log")
+        print("2.  Disconnect VPN")
+        print("3.  Add Target")
+        print("4.  Scan Target")
         print("99. Exit")
         usr = input_check.menu_user_input()
         match usr:
             case 1:
-                tryhackme.vpn_conn()
-                if "DISCONNECTED" not in tryhackme.connection:
+                if "DISCONNECTED" in tryhackme.connection:
+                    tryhackme.vpn_conn()
                     utils.print_success("VPN Connected!")
                     input("\nPress any key to continue.")
                 else:
-                    utils.print_err("Erro.")
+                    utils.print_info("Conected.")
                     input("\nPress any key to continue.")
             case 2:
+                if "DISCONNECTED" in tryhackme.connection:
+                    utils.print_info("Disconnected.")
+                    input("\nPress any key to continue.")
+                else:
+                    tryhackme.stop_conn()
+                    input("\nPress any key to continue.")
+            case 3:
                 tryhackme.get_rhost()
 
             case 99:
