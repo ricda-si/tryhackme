@@ -12,6 +12,8 @@ class TryHackMe:
         for file in os.listdir(path):
             full_path = os.path.join(path, file)
             if os.path.isfile(full_path):
-                print(file)
+                if file.endswith(".ovpn"):
+                    return file
 
 tryhackme = TryHackMe()
+print(tryhackme.get_ovpn_file())
