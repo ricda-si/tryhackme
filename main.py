@@ -20,10 +20,8 @@ def menu():
                 if "CONNECTED" in tryhackme.connection:
                     utils.print_success("VPN Connected!")
             case 99:
+                tryhackme.stop_conn()
                 break
-        tryhackme.stop_conn()
-        break
-
 
 if __name__ == "__main__":
     menu()
