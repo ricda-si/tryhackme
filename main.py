@@ -29,6 +29,7 @@ def menu():
                     input("Press any key to continue...")
                 else:
                     utils.print_info("Conected.")
+                    input("Press any key to continue...")
             case 2:
                 scanner.menu(tryhackme.connection, tryhackme.lhost)
             case 99:

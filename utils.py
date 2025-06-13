@@ -29,6 +29,7 @@ def scanner_user_info(conn, lhost, rhost):
     print(line)
     print(f"{conn_line}")
     print(f"{lhost_line}")
+    print(f"{rhost_line}")
     print(line)
 
 def print_err(text):
