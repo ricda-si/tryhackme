@@ -31,7 +31,7 @@ def menu():
                     utils.print_info("Conected.")
                     input("Press any key to continue...")
             case 2:
-                scanner.menu(tryhackme.connection, tryhackme.lhost)
+                scanner.menu(tryhackme.connection, tryhackme.lhost, tryhackme.connection)
             case 99:
                 if "DISCONNECTED" not in tryhackme.connection:
                     tryhackme.stop_conn()
