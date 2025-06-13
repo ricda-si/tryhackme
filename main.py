@@ -26,10 +26,10 @@ def menu():
                     tryhackme.vpn_conn()
                     utils.print_info(f"IP: {tryhackme.lhost}")
                     utils.print_success("VPN Connected!")
-                    input("Press any key to continue...")
+                    input("\nPress any key to continue...")
                 else:
                     utils.print_info("Conected.")
-                    input("Press any key to continue...")
+                    input("\nPress any key to continue...")
             case 2:
                 scanner.menu(tryhackme.connection, tryhackme.lhost, tryhackme.connection)
             case 99:
