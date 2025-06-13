@@ -20,8 +20,6 @@ def print_user_info(conn, lhost):
     print(f"{lhost_line}")
     print(line)
 
-    input()
-
 def print_err(text):
     print(Style.BRIGHT + Fore.RED + text + Style.RESET_ALL)
 
