@@ -14,7 +14,7 @@ def print_user_info(conn, lhost):
     conn_line = f"  VPN:    {conn.capitalize()}"
     lhost_line =f"  LHOST:  {lhost}"
 
-    line = "+" + "-" * 30 + "-+"
+    line = "+" + "-" * 25 + "-+"
     print(line)
     print(f"{conn_line}")
     print(f"{lhost_line}")
