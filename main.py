@@ -30,7 +30,7 @@ def menu():
                 else:
                     utils.print_info("Conected.")
             case 2:
-                scanner.test(tryhackme.lhost, tryhackme.connection)
+                scanner.menu(tryhackme.connection, tryhackme.lhost)
             case 99:
                 if "DISCONNECTED" not in tryhackme.connection:
                     tryhackme.stop_conn()
